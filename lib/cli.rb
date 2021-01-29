@@ -6,10 +6,24 @@ class Cli
   end
 
   def prompt_for_zip
-    puts "Please enter your zip code"
-    input = gets.strip
-    # error handling for invalid zip
-    new_location = Api.get_weather_by_zip(input)
+    new_location = false
+    # puts "Please enter your zip code"
+    # input = gets.strip
+    # new_location = Api.get_weather_by_zip(input)
+    # if new_location
+    #   self.weather_options(new_location)
+    # else
+    #   puts "That zip code was invalid."
+    #   self.prompt_for_zip
+    # end
+    while !new_location
+        puts "Please enter your zip code"
+        input = gets.strip
+        new_location = Api.get_weather_by_zip(input)
+        if !new_location
+          puts "That zip code was invalid."
+        end
+    end
     self.weather_options(new_location)
   end
 

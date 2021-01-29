@@ -7,7 +7,8 @@ class Cli
 
   def prompt_for_zip
     puts "Please enter your zip code"
-    input = gets.strip
+    # input = gets.strip
+    Api.get_weather_by_zip
     # do something with the zip code
   end
 

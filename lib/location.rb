@@ -9,5 +9,7 @@ class Location
       # binding.pry
   end
 
+  # way to check if we have already requested that location
+
 
 end

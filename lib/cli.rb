@@ -19,7 +19,15 @@ class Cli
     while !new_location
         puts "Please enter your zip code"
         input = gets.strip
-        new_location = Api.get_weather_by_zip(input)
+        # if Location.find_by_zip(input)
+        #   new_location = Location.find_by_zip(input)
+        # else
+        #   new_location = Api.get_weather_by_zip(input)
+        # end
+
+        new_location = Location.find_by_zip(input) || Api.get_weather_by_zip(input)
+  
+
         if !new_location
           puts "That zip code was invalid."
         end

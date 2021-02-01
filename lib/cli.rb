@@ -50,7 +50,25 @@ class Cli
       puts "That selection was invalid."
       self.weather_options(location)
     end
+    self.main_menu
+  end
 
+  def main_menu
+    puts "To see another location, please enter 1"
+    puts "To exit the program please enter 2"
+    input = gets.strip
+    if input == "1"
+        self.prompt_for_zip
+    elsif input == "2"
+        self.exit_program
+    else
+      puts "Invalid selection"
+      self.main_menu
+    end
+  end
+
+  def exit_program
+    abort("Thanks for using the weather app!")
   end
 
 end
